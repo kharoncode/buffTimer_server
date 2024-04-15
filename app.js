@@ -2,10 +2,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 const app = express();
+const usersRoutes = require('./routes/users');
+const charactersRoutes = require('./routes/characters');
 
 mongoose
    .connect(
-      'mongodb+srv://sharoncode:B2Xu5i5eeeOAkzDd@bufftimer.upogigw.mongodb.net/?retryWrites=true&w=majority&appName=BuffTimer',
+      'mongodb+srv://sharoncode:B2Xu5i5eeeOAkzDd@bufftimer.upogigw.mongodb.net/BT?retryWrites=true&w=majority&appName=BuffTimer',
       { useNewUrlParser: true, useUnifiedTopology: true }
    )
    .then(() => console.log('MongoDB Connected !'))
@@ -25,5 +27,6 @@ app.use((req, res, next) => {
    next();
 });
 app.use('/api/auth', usersRoutes);
+app.use('/api/characters', charactersRoutes);
 
 module.exports = app;
