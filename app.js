@@ -7,7 +7,7 @@ const charactersRoutes = require('./routes/characters');
 
 mongoose
    .connect(
-      'mongodb+srv://sharoncode:B2Xu5i5eeeOAkzDd@bufftimer.upogigw.mongodb.net/BT?retryWrites=true&w=majority&appName=BuffTimer'
+      'mongodb+srv://sharoncode:B2Xu5i5eeeOAkzDd@bufftimer.upogigw.mongodb.net/BT?'
    )
    .then(() => console.log('MongoDB Connected !'))
    .catch(() => console.log('Error to connect MongoDB'));
