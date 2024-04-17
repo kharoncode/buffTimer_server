@@ -7,8 +7,7 @@ const charactersRoutes = require('./routes/characters');
 
 mongoose
    .connect(
-      'mongodb+srv://sharoncode:B2Xu5i5eeeOAkzDd@bufftimer.upogigw.mongodb.net/BT?retryWrites=true&w=majority&appName=BuffTimer',
-      { useNewUrlParser: true, useUnifiedTopology: true }
+      'mongodb+srv://sharoncode:B2Xu5i5eeeOAkzDd@bufftimer.upogigw.mongodb.net/BT?retryWrites=true&w=majority&appName=BuffTimer'
    )
    .then(() => console.log('MongoDB Connected !'))
    .catch(() => console.log('Error to connect MongoDB'));
@@ -28,5 +27,8 @@ app.use((req, res, next) => {
 });
 app.use('/api/auth', usersRoutes);
 app.use('/api/characters', charactersRoutes);
+app.get('/', (req, res, next) => {
+   res.status(200).json({ message: 'Hello' });
+});
 
 module.exports = app;
