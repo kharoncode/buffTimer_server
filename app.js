@@ -10,7 +10,7 @@ mongoose
       'mongodb+srv://sharoncode:B2Xu5i5eeeOAkzDd@bufftimer.upogigw.mongodb.net/BT?'
    )
    .then(() => console.log('MongoDB Connected !'))
-   .catch(() => console.log('Error to connect MongoDB'));
+   .catch((error) => console.log('Error to connect MongoDB', error));
 
 app.use(express.json());
 app.use((req, res, next) => {
