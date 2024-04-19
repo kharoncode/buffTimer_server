@@ -7,7 +7,7 @@ exports.signup = (req, res, next) => {
       .hash(req.body.password, 10)
       .then((hash) => {
          const user = new User({
-            email: req.body.email,
+            name: req.body.name,
             password: hash,
          });
          user
@@ -19,7 +19,7 @@ exports.signup = (req, res, next) => {
 };
 
 exports.login = (req, res, next) => {
-   User.findOne({ email: req.body.email })
+   User.findOne({ name: req.body.name })
       .then((user) => {
          !user &&
             res
