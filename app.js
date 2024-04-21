@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const app = express();
 const usersRoutes = require('./routes/users');
 const charactersRoutes = require('./routes/characters');
+const auth = require('./middleware/auth');
 
 mongoose
    .connect(
@@ -25,7 +26,7 @@ app.use((req, res, next) => {
    next();
 });
 app.use('/api/auth', usersRoutes);
-app.use('/api/characters', charactersRoutes);
+app.use('/api/characters', auth, charactersRoutes);
 app.get('/', (req, res, next) => {
    res.status(200).json({ message: 'Hello' });
 });
