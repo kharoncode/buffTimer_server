@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const app = express();
 const usersRoutes = require('./routes/users');
 const charactersRoutes = require('./routes/characters');
+const cors = require('cors');
 const auth = require('./middleware/auth');
 
 mongoose
@@ -13,6 +14,7 @@ mongoose
    .catch((error) => console.log('Error to connect MongoDB', error));
 
 app.use(express.json());
+app.use(cors());
 app.use((req, res, next) => {
    res.setHeader('Access-Control-Allow-Origin', '*');
    res.setHeader(
